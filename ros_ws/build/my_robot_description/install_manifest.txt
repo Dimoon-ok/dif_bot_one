@@ -7,7 +7,7 @@
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/gazebo_control.xacro
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/launch/launch_sim.launch.py
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/launch/rsp.launch.py
-/home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/table
+/home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/table.world
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/empty.world
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/obstacles.world
 /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/ament_index/resource_index/package_run_dependencies/my_robot_description
