@@ -1,0 +1,49 @@
+[0.010s] Invoking command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/din/local/dif_bot_one/ros_ws/src/my_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/din/local/dif_bot_one/ros_ws/install/my_robot_description
+[0.066s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.220s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.246s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.322s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.325s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.326s] -- Added test 'lint_cmake' to check CMake code style
+[0.326s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.328s] -- Added test 'xmllint' to check XML markup files
+[0.330s] -- Configuring done
+[0.336s] -- Generating done
+[0.339s] -- Build files have been written to: /home/din/local/dif_bot_one/ros_ws/build/my_robot_description
+[0.342s] Invoked command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/din/local/dif_bot_one/ros_ws/src/my_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/din/local/dif_bot_one/ros_ws/install/my_robot_description
+[0.345s] Invoking command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/din/local/dif_bot_one/ros_ws/build/my_robot_description -- -j8 -l8
+[0.386s] Invoked command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/din/local/dif_bot_one/ros_ws/build/my_robot_description -- -j8 -l8
+[0.396s] Invoking command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/din/local/dif_bot_one/ros_ws/build/my_robot_description
+[0.403s] -- Install configuration: ""
+[0.403s] -- Execute custom install script
+[0.404s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/config/gazebo_params.yaml
+[0.412s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/config/my_controllers.yaml
+[0.421s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/config/robot_view.rviz
+[0.430s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/camera.xacro
+[0.439s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/gazebo_control.xacro
+[0.449s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/inertial_macros.xacro
+[0.458s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/lidar.xacro
+[0.468s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/robot.urdf.xacro
+[0.476s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/robot_core.xacro
+[0.484s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/urdf/ros2_control.xacro
+[0.492s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/launch/launch_sim.launch.py
+[0.499s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/launch/rsp.launch.py
+[0.507s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/empty.world
+[0.514s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/obstacles.world
+[0.522s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/worlds/table.world
+[0.540s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/ament_index/resource_index/package_run_dependencies/my_robot_description
+[0.549s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/ament_index/resource_index/parent_prefix_path/my_robot_description
+[0.557s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/environment/ament_prefix_path.sh
+[0.565s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/environment/ament_prefix_path.dsv
+[0.572s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/environment/path.sh
+[0.580s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/environment/path.dsv
+[0.588s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/local_setup.bash
+[0.595s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/local_setup.sh
+[0.603s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/local_setup.zsh
+[0.610s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/local_setup.dsv
+[0.618s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/package.dsv
+[0.626s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/ament_index/resource_index/packages/my_robot_description
+[0.634s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/cmake/my_robot_descriptionConfig.cmake
+[0.644s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/cmake/my_robot_descriptionConfig-version.cmake
+[0.652s] -- Symlinking: /home/din/local/dif_bot_one/ros_ws/install/my_robot_description/share/my_robot_description/package.xml
+[0.661s] Invoked command in '/home/din/local/dif_bot_one/ros_ws/build/my_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/din/local/dif_bot_one/ros_ws/build/my_robot_description
