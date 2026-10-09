@@ -1,1 +1,0 @@
-/home/din/local/dif_bot_one/ros_ws/src/my_robot_description/launch/launch_sim.launch.py

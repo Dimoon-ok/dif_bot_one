@@ -1,1 +1,0 @@
-/home/din/local/dif_bot_one/ros_ws/build/my_robot_description/ament_cmake_environment_hooks/local_setup.zsh
