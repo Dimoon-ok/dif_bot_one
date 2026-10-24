@@ -52,9 +52,12 @@ class App:
         self.root.title("PID Tuner and Speed Monitor")
 
         # Настройки serial (измените при необходимости)
-        self.serial_port = "COM7"  # или "/dev/ttyUSB0"
+        self.serial_port = "/dev/ttyUSB0"  # или "/dev/ttyUSB0"
         self.baudrate = 115200
         self.serial_thread = None
+
+        # Параметры робота (расстояние между колесами в метрах)
+        self.wheelbase = 0.3  # измените на реальное значение
 
         self.create_widgets()
 
@@ -114,26 +117,47 @@ class App:
         self.kff_scale.set(0.3)
         self.kff_scale.grid(row=1, column=3)
 
-        # Ползунки для задания целевых скоростей колес
-        tk.Label(self.root, text="Target Speed Left (mm/s):").grid(row=2,
-                                                                   column=0, columnspan=2, sticky="e")
-        self.target_left_scale = tk.Scale(self.root, from_=-500, to=500, resolution=1,
-                                          orient=tk.HORIZONTAL, length=200,
-                                          command=self.update_speed_from_sliders)
-        self.target_left_scale.set(0)
-        self.target_left_scale.grid(row=2, column=2)
-
-        tk.Label(self.root, text="Target Speed Right (mm/s):").grid(row=3,
-                                                                    column=0, columnspan=2, sticky="e")
-        self.target_right_scale = tk.Scale(self.root, from_=-500, to=500, resolution=1,
+        # Ползунки для задания линейной и угловой скорости
+        tk.Label(self.root, text="Linear Speed (m/s):").grid(row=2,
+                                                             column=0, columnspan=2, sticky="e")
+        self.linear_speed_scale = tk.Scale(self.root, from_=-1.0, to=1.0, resolution=0.01,
                                            orient=tk.HORIZONTAL, length=200,
-                                           command=self.update_speed_from_sliders)
-        self.target_right_scale.set(0)
-        self.target_right_scale.grid(row=3, column=2)
+                                           command=self.update_velocity_from_sliders)
+        self.linear_speed_scale.set(0)
+        self.linear_speed_scale.grid(row=2, column=2)
+
+        tk.Label(self.root, text="Angular Speed (rad/s):").grid(row=3,
+                                                                column=0, columnspan=2, sticky="e")
+        self.angular_speed_scale = tk.Scale(self.root, from_=-3.5, to=3.5, resolution=0.1,
+                                            orient=tk.HORIZONTAL, length=200,
+                                            command=self.update_velocity_from_sliders)
+        self.angular_speed_scale.set(0)
+        self.angular_speed_scale.grid(row=3, column=2)
+
+        # Кнопка остановки
+        self.stop_button = tk.Button(self.root, text="STOP", command=self.stop_robot,
+                                     bg="red", fg="white", font=("Arial", 12, "bold"))
+        self.stop_button.grid(row=4, column=0, columnspan=4, pady=10)
 
         # Текстовое поле для вывода статуса и отладочной информации
         self.status_text = tk.Text(self.root, height=5, width=60)
         self.status_text.grid(row=5, column=0, columnspan=4, pady=5)
+
+    def stop_robot(self):
+        """Останавливает робота, отправляя нулевую скорость и сбрасывая ползунки"""
+        # Сбрасываем ползунки в нулевое положение
+        self.linear_speed_scale.set(0)
+        self.angular_speed_scale.set(0)
+
+        # Отправляем команду остановки
+        cmd = "SET_ROBOT_VELOCITY 0.0 0.0\n"
+        if self.serial_thread and self.serial_thread.ser:
+            try:
+                self.serial_thread.ser.write(cmd.encode("utf-8"))
+                self.status_text.insert(tk.END, "Sent STOP: " + cmd)
+                self.status_text.see(tk.END)
+            except Exception as e:
+                print("Error sending stop command:", e)
 
     def start_serial(self):
         self.serial_thread = SerialReader(
@@ -180,19 +204,21 @@ class App:
             except Exception as e:
                 print("Error sending coefficients:", e)
 
-    def update_speed_from_sliders(self, value):
-        # Формирование команды вида "SET_WHEELS_SPEED leftSpeed rightSpeed" и отправка по serial
-        cmd = "SET_WHEELS_SPEED {} {}\n".format(
-            self.target_left_scale.get(),
-            self.target_right_scale.get()
-        )
+    def update_velocity_from_sliders(self, value):
+        # Получаем линейную и угловую скорости из ползунков
+        linear_speed = self.linear_speed_scale.get()*1000  # мм/с
+        angular_speed = self.angular_speed_scale.get()  # рад/с
+
+        # Формирование команды для установки скорости робота
+        cmd = "SET_ROBOT_VELOCITY {} {}\n".format(linear_speed, angular_speed)
+
         if self.serial_thread and self.serial_thread.ser:
             try:
                 self.serial_thread.ser.write(cmd.encode("utf-8"))
                 self.status_text.insert(tk.END, "Sent: " + cmd)
                 self.status_text.see(tk.END)
             except Exception as e:
-                print("Error sending wheel speed:", e)
+                print("Error sending robot velocity:", e)
 
     def update_plot(self):
         # Обновление графика с накопленными данными
@@ -222,6 +248,9 @@ class App:
         self.root.after(1000, self.update_plot)
 
     def on_closing(self):
+        # Останавливаем робота перед закрытием
+        self.stop_robot()
+        time.sleep(0.1)  # Даем время на отправку команды
         if self.serial_thread:
             self.serial_thread.stop()
         self.root.destroy()
