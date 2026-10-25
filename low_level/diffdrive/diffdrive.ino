@@ -390,7 +390,7 @@ void processCommand(String command) {
 void setup() {
   Serial.begin(115200);
   delay(1000);
-  Serial.println("System started");
+  //Serial.println("System started");
 
   attachInterrupt(digitalPinToInterrupt(LEFT_ENCODER_A), left_interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(RIGHT_ENCODER_A), right_interrupt, RISING);
