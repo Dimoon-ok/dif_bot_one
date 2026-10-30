@@ -10,7 +10,6 @@ def generate_launch_description():
             emulate_tty=True
         )
     
-    
     return LaunchDescription([
         robot_node
     ])

@@ -1,0 +1,22 @@
+/usb_cam_bridge:
+  ros__parameters:
+    device: "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:3:1.0-video-index0"
+    
+    width: 1280
+    height: 720
+    fps: 30
+    fourcc: "MJPG"
+    frame_id: "camera"
+
+    target_fps: 30.0
+    scale: 1.0           # Уменьшит картинку до 640x360 для экономии сети
+    mono: false          # Сделайте true, если нужна черно-белая картинка
+
+    # Настройки публикации
+    publish_raw: true
+    publish_compressed: true
+    raw_every_n: 3       # Экономит процессор: RAW шлется раз в 3 кадра, а Compressed — каждый кадр
+    jpeg_quality: 80     # Сжатие JPEG от 1 до 100
+
+    # Watchdog
+    reopen_on_stall_sec: 1.5
