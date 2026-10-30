@@ -419,9 +419,9 @@ void loop() {
     PIDTimer = millis();
   }
   //сверху команды высылать не реже 100-200 мс
-  if (millis() - lastCmdTime > 500 && (targetLeftWheelSpeed != 0 || targetRightWheelSpeed != 0)) {
-    setRobotVelocity(0, 0);
-  }
+  // if (millis() - lastCmdTime > 500 && (targetLeftWheelSpeed != 0 || targetRightWheelSpeed != 0)) {
+  //   setRobotVelocity(0, 0);
+  // }
   static uint32_t printTimer = 0;
   if (millis() - printTimer > 50 && !bootMode) {
     Serial.printf("POS X=%.2f Y=%.2f Th=%.2f ", xPos, yPos, theta);
