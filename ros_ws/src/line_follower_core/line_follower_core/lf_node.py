@@ -53,7 +53,7 @@ class LineFollower(Node):
         self.declare_parameter('timer_period', 0.05)        # сек (20 Гц)
         self.declare_parameter('max_omega', 2.0)            # ограничитель |angular.z|
         self.declare_parameter('lost_behavior', 'stop')     # 'stop' или 'spin'
-        self.declare_parameter('search_omega', 0.6)         # рад/с при 'spin'
+        self.declare_parameter('search_omega', 1.0)         # рад/с при 'spin'
 
         # отладочная картинка для RViz
         self.declare_parameter('publish_debug', True)
