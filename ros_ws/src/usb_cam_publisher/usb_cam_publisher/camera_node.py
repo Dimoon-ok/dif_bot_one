@@ -232,7 +232,7 @@ class USBCamBridge(Node):
         now = time.time()
         if now - self._fps_t0 >= 1.0:
             fps = self._fps_frames / (now - self._fps_t0)
-            self.get_logger().info(f"Camera FPS: {fps:.1f}")
+            #self.get_logger().info(f"Camera FPS: {fps:.1f}")
             self.pub_fps.publish(Float32(data=float(fps)))
             self._fps_frames = 0
             self._fps_t0 = now
